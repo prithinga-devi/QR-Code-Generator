@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+        <div class="glass-card">
+            <div class="header">
+                <h1>QR Generator</h1>
+                <p class="subtitle">Enter a URL to generate your high-res QR code</p>
+            </div>
+
+            <div class="input-group">
+                <input type="url" id="urlInput" placeholder="https://example.com" autocomplete="off">
+            </div>
+
+            <button id="generateBtn">Generate QR Code</button>
+
+            <div class="qr-container" id="qrContainer">
+                <div class="loading" id="loadingSpinner"></div>
+                <div class="qr-placeholder" id="qrPlaceholder">
+                    <svg title="QR Placeholder" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Your QR code will appear here</span>
+                </div>
+                <img id="qrImage" src="" alt="Generated QR Code" style="display: none;">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
