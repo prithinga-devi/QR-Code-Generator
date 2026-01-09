@@ -3,6 +3,7 @@ const generateBtn = document.getElementById('generateBtn');
 const qrContainer = document.getElementById('qrContainer');
 const qrPlaceholder = document.getElementById('qrPlaceholder');
 const loadingSpinner = document.getElementById('loadingSpinner');
+const downloadBtn = document.getElementById('downloadBtn');
 
 let qrCodeInstance = null;
 
@@ -59,6 +60,7 @@ generateBtn.addEventListener('click', () => {
 
             loadingSpinner.style.display = 'none';
             qrContainer.classList.add('active');
+            downloadBtn.style.display = 'flex';
 
         } catch (error) {
             console.error('Error generating QR code:', error);
@@ -80,6 +82,33 @@ generateBtn.addEventListener('click', () => {
 urlInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         generateBtn.click();
+    }
+});
+
+// Download QR code functionality
+downloadBtn.addEventListener('click', () => {
+    try {
+        // Find the canvas element inside the QR code container
+        const canvas = qrContainer.querySelector('canvas');
+
+        if (!canvas) {
+            console.error('No canvas found');
+            return;
+        }
+
+        // Convert canvas to blob and download
+        canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `qr-code-${Date.now()}.png`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }, 'image/png');
+    } catch (error) {
+        console.error('Error downloading QR code:', error);
     }
 });
 

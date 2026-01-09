@@ -168,6 +168,24 @@ button:active {
     transform: translateY(0);
 }
 
+.download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    background: linear-gradient(45deg, #10b981 0%, #059669 100%);
+}
+
+.download-btn:hover {
+    box-shadow: 0 10px 20px -10px rgba(16, 185, 129, 0.5);
+}
+
+.download-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
 .qr-container {
     width: 100%;
     min-height: 200px;
@@ -277,6 +295,16 @@ button:active {
     button {
         padding: 16px;
     }
+
+    .download-btn {
+        padding: 16px;
+        font-size: 1rem;
+    }
+
+    .download-btn svg {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -295,5 +323,15 @@ button:active {
     button {
         padding: 14px;
         font-size: 0.95rem;
+    }
+
+    .download-btn {
+        padding: 14px;
+        font-size: 0.95rem;
+    }
+
+    .download-btn svg {
+        width: 18px;
+        height: 18px;
     }
 }
